@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "MainViewController.h"
+#import <ReactiveObjC.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <LoginViewControllerDelegate, MainViewControllerDelegate>
 
 @end
 
@@ -16,8 +19,34 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    [self gotoMainViewController];
+    
     return YES;
+}
+
+- (void)gotoLoginViewController {
+    LoginViewController *loginCtr = [[LoginViewController alloc] init];
+    loginCtr.delegate = self;
+    [[self rac_signalForSelector:@selector(login:message:) fromProtocol:@protocol(LoginViewControllerDelegate)] subscribeNext:^(RACTuple * _Nullable x) {
+        if ([[x first] boolValue]) {
+            [self gotoMainViewController];
+        }
+    }];
+    self.window.rootViewController = loginCtr;
+}
+- (void)gotoMainViewController {
+    MainViewController *mainCtr = [[MainViewController alloc] init];
+    mainCtr.delegate = self;
+    [[self rac_signalForSelector:@selector(logout:message:) fromProtocol:@protocol(MainViewControllerDelegate)] subscribeNext:^(RACTuple * _Nullable x) {
+        if ([[x first] boolValue]) {
+            [self gotoLoginViewController];
+        }
+    }];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainCtr];
 }
 
 
