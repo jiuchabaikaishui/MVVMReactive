@@ -23,7 +23,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self gotoMainViewController];
+    [self gotoLoginViewController];
     
     return YES;
 }

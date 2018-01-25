@@ -25,6 +25,7 @@
     UITextField *userNameTextField = [[UITextField alloc] init];
     userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     userNameTextField.placeholder = @"请输入用户名…";
+    [userNameTextField becomeFirstResponder];
     [self.view addSubview:userNameTextField];
     
     UITextField *passwordTextField = [[UITextField alloc] init];
