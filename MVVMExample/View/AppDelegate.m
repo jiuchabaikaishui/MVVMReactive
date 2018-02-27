@@ -7,9 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import "SearchViewController.h"
+#import "LoginViewModel.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) LoginViewModel *loginViewModel;
 
 @end
 
@@ -18,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [self rootController];
     [self.window makeKeyAndVisible];
     
@@ -25,8 +30,9 @@
 }
 
 - (UIViewController *)rootController {
-    MainViewController *main = [[MainViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:main];
+    self.loginViewModel = [[LoginViewModel alloc] initWithLoginServices:[[LoginServices alloc] initWithWindow:self.window rootViewControlller:[[UINavigationController alloc] initWithRootViewController:[[SearchViewController alloc] initWithViewModel:[[SearchViewModel alloc] init]]]]];
+    LoginViewController *loginC = [[LoginViewController alloc] initWithLoginViewModel:self.loginViewModel];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginC];
     
     return nav;
 }
