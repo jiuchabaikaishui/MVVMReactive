@@ -48,6 +48,12 @@
     [self.viewModel.loginCommand.executionSignals subscribeNext:^(id  _Nullable x) {
         [self.userNameT resignFirstResponder];
         [self.passWordT resignFirstResponder];
+        
+//        [x subscribeNext:^(id  _Nullable x) {
+//            if (x && [x[@"code"] integerValue] == 0) {
+//                self.passWordT.text = nil;
+//            }
+//        }];
     }];
 }
 - (void)settingUI {

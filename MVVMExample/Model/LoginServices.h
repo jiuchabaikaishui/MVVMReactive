@@ -7,17 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SearchViewModel.h"
+#import <ReactiveObjC.h>
 
 @protocol LoginDelegate <NSObject>
 
 - (RACSignal *)loginSignal:(NSString *)userName passWord:(NSString *)passWord;
-- (void)gotoSearchViewModel:(SearchViewModel *)viewModel;
+- (void)gotoSearchViewModel;
+
+- (void)showLoading;
+- (void)hideLoading;
+- (void)showMessage:(NSString *)message;
 
 @end
 
 @interface LoginServices : NSObject <LoginDelegate>
 
-- (instancetype)initWithWindow:(UIWindow *)window rootViewControlller:(UIViewController *)controller;
+- (instancetype)initWithWindow:(UIWindow *)window;
 
 @end

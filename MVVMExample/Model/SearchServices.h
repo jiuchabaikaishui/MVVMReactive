@@ -12,9 +12,13 @@
 @protocol SearchDelegate <NSObject>
 
 - (RACSignal *)searchSignal:(NSString *)searchText;
+- (RACSignal *)logoutSignal:(NSString *)userName;
+- (void)gotoLoginViewModel;
 
 @end
 
 @interface SearchServices : NSObject <SearchDelegate>
+
+- (instancetype)initWithWindow:(UIWindow *)window;
 
 @end

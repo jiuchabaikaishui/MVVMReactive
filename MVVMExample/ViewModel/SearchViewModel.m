@@ -7,7 +7,6 @@
 //
 
 #import "SearchViewModel.h"
-#import "SearchServices.h"
 
 @interface SearchViewModel ()
 
@@ -17,7 +16,7 @@
 
 @implementation SearchViewModel
 
-- (instancetype)init {
+- (instancetype)initWithSearchServices:(SearchServices *)services {
     if (self = [super init]) {
         self.title = @"好友";
         self.searchText = @"";
@@ -31,8 +30,13 @@
         self.searchCommand = [[RACCommand alloc] initWithEnabled:validSearchS signalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [[self.searchServices searchSignal:self.searchText] logAll];
         }];
+        self.logoutCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [[[self.searchServices logoutSignal:@""] doNext:^(id  _Nullable x) {
+                [self.searchServices gotoLoginViewModel];
+            }] logAll];
+        }];
         
-        _searchServices = [[SearchServices alloc] init];
+        _searchServices = services;
     }
     
     return self;

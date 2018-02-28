@@ -6,17 +6,17 @@
 //  Copyright © 2017年 QSP. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "ReactiveLoginViewController.h"
 #import "Masonry.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import <RACEXTScope.h>
 
-@interface LoginViewController ()
+@interface ReactiveLoginViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation ReactiveLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

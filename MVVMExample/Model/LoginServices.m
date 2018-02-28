@@ -9,20 +9,20 @@
 #import "LoginServices.h"
 #import "NetworkingTool.h"
 #import "MBProgressHUD.h"
+#import "SearchViewController.h"
+#import "LoadingTool.h"
 
 @interface LoginServices ()
 
 @property (weak, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UIViewController *controller;
 
 @end
 
 @implementation LoginServices
 
-- (instancetype)initWithWindow:(UIWindow *)window rootViewControlller:(UIViewController *)controller {
+- (instancetype)initWithWindow:(UIWindow *)window {
     if (self = [super init]) {
         self.window = window;
-        self.controller = controller;
     }
     
     return self;
@@ -30,19 +30,7 @@
 
 - (RACSignal *)loginSignal:(NSString *)userName passWord:(NSString *)passWord {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        [MBProgressHUD showHUDAddedTo:self.window animated:NO];
         [NetworkingTool postWithPath:K_Service_Login parameters:@{@"userName": userName, @"passWord": passWord} completion:^(BOOL success, NSString *message, id responseObject) {
-            [MBProgressHUD hideHUDForView:self.window animated:YES];
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.controller.view animated:NO];
-            hud.mode = MBProgressHUDModeText;
-            if (success) {
-                hud.label.text = responseObject[@"message"];
-            } else {
-                hud.label.text = message;
-            }
-            hud.label.numberOfLines = 0;
-            hud.userInteractionEnabled = YES;
-            [hud hideAnimated:YES afterDelay:3];
             [subscriber sendNext:responseObject];
             [subscriber sendCompleted];
         }];
@@ -52,9 +40,18 @@
         }];
     }];
 }
-- (void)gotoSearchViewModel:(SearchViewModel *)viewModel {
-    self.window.rootViewController = self.controller;
+- (void)gotoSearchViewModel {
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SearchViewController alloc] initWithViewModel:[[SearchViewModel alloc] initWithSearchServices:[[SearchServices alloc] initWithWindow:self.window]]]];
     [self.window makeKeyAndVisible];
+}
+- (void)showLoading {
+    [LoadingTool showTo:self.window.rootViewController.view];
+}
+- (void)hideLoading {
+    [LoadingTool hideFrom:self.window.rootViewController.view];
+}
+- (void)showMessage:(NSString *)message {
+    [LoadingTool showMessage:message toView:self.window.rootViewController.view];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC.h>
+#import "SearchServices.h"
 
 @interface SearchViewModel : NSObject
 
@@ -21,5 +22,8 @@
  */
 @property (copy, nonatomic) NSString *searchText;
 @property (strong, nonatomic) RACCommand *searchCommand;
+@property (strong, nonatomic) RACCommand *logoutCommand;
+
+- (instancetype)initWithSearchServices:(SearchServices *)services;
 
 @end

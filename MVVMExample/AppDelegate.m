@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SearchViewController.h"
 #import "LoginViewModel.h"
 #import "LoginViewController.h"
 
@@ -30,9 +29,10 @@
 }
 
 - (UIViewController *)rootController {
-    self.loginViewModel = [[LoginViewModel alloc] initWithLoginServices:[[LoginServices alloc] initWithWindow:self.window rootViewControlller:[[UINavigationController alloc] initWithRootViewController:[[SearchViewController alloc] initWithViewModel:[[SearchViewModel alloc] init]]]]];
+    UINavigationController *nav = [[UINavigationController alloc] init];
+    self.loginViewModel = [[LoginViewModel alloc] initWithLoginServices:[[LoginServices alloc] initWithWindow:self.window]];
     LoginViewController *loginC = [[LoginViewController alloc] initWithLoginViewModel:self.loginViewModel];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginC];
+    [nav pushViewController:loginC animated:NO];
     
     return nav;
 }

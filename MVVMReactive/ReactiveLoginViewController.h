@@ -9,17 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <ReactiveObjC.h>
 
-@protocol LoginViewControllerDelegate <NSObject>
+@protocol ReactiveLoginViewControllerDelegate <NSObject>
 
 @optional
 - (void)login:(BOOL)success message:(NSString *)message;
 
 @end
 
-@interface LoginViewController : UIViewController
+@interface ReactiveLoginViewController : UIViewController
 
 @property (weak, nonatomic) RACSignal *loginSignal;
-@property (weak, nonatomic) id<LoginViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<ReactiveLoginViewControllerDelegate> delegate;
 
 @end
 

@@ -38,6 +38,21 @@
             });
         }
         
+        if ([path isEqualToString:K_Service_Logout]) {
+            [NSThread sleepForTimeInterval:3];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(YES, @"请求成功", @{@"userName": parameters[@"userName"], @"code": @(0), @"message": @"退出成功"});
+//                if ([parameters[@"userName"] isEqualToString:@"Jiuchabaikaishui"]) {
+//                } else {
+//                    if ([parameters[@"userName"] isEqualToString:@"Jiuchabaikaishu"]) {//用账号Jiuchabaikaishu模拟网络请求失败
+//                        completion(NO, @"请求失败", nil);
+//                    } else {
+//                        completion(YES, @"请求成功", @{@"userName": parameters[@"userName"], @"code": @(1), @"message": @"退出失败"});
+//                    }
+//                }
+            });
+        }
+        
         if ([path isEqualToString:K_Service_GetAllFriends]) {
             NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"]];
             NSError *error = nil;

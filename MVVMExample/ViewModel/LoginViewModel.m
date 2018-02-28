@@ -8,6 +8,7 @@
 
 #import "LoginViewModel.h"
 #import "MBProgressHUD.h"
+#import "SearchViewModel.h"
 
 @interface LoginViewModel ()
 
@@ -40,10 +41,13 @@
         }];
         
         self.loginCommand = [[RACCommand alloc] initWithEnabled:validLS signalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            [self.loginServices showLoading];
             return [[[self.loginServices loginSignal:self.userName passWord:self.passWord] doNext:^(id  _Nullable x) {
-                if (x && [x[@"code"] integerValue] == 0) {
-                    [self.loginServices gotoSearchViewModel:[[SearchViewModel alloc] init]];
+                if ([x[@"code"] integerValue] == 0) {
+                    [self.loginServices gotoSearchViewModel];
                 }
+                [self.loginServices hideLoading];
+                [self.loginServices showMessage:x[@"message"]];
             }] logAll];
         }];
     }

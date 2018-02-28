@@ -39,13 +39,15 @@
 - (void)bindViewModel {
     self.title = self.viewModel.title;
     RAC(self.viewModel, searchText) = self.searchTextField.rac_textSignal;
-    self.rightButton.rac_command = self.viewModel.searchCommand;
-    
     RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) = self.viewModel.searchCommand.executing;
     RAC(self.loadingView, hidden) = [self.viewModel.searchCommand.executing not];
+    
+    self.rightButton.rac_command = self.viewModel.searchCommand;
     [self.viewModel.searchCommand.executionSignals subscribeNext:^(id  _Nullable x) {
         [self.searchTextField resignFirstResponder];
     }];
+    
+    self.leftButton.rac_command = self.viewModel.logoutCommand;
 }
 - (void)settingUi {
     //设置UI

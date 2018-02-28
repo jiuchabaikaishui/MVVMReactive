@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginViewController.h"
+#import "ReactiveLoginViewController.h"
 #import "MainViewController.h"
 #import <ReactiveObjC.h>
 
-@interface AppDelegate () <LoginViewControllerDelegate, MainViewControllerDelegate>
+@interface AppDelegate () <ReactiveLoginViewControllerDelegate, MainViewControllerDelegate>
 
 @end
 
@@ -29,9 +29,9 @@
 }
 
 - (void)gotoLoginViewController {
-    LoginViewController *loginCtr = [[LoginViewController alloc] init];
+    ReactiveLoginViewController *loginCtr = [[ReactiveLoginViewController alloc] init];
     loginCtr.delegate = self;
-    [[self rac_signalForSelector:@selector(login:message:) fromProtocol:@protocol(LoginViewControllerDelegate)] subscribeNext:^(RACTuple * _Nullable x) {
+    [[self rac_signalForSelector:@selector(login:message:) fromProtocol:@protocol(ReactiveLoginViewControllerDelegate)] subscribeNext:^(RACTuple * _Nullable x) {
         if ([[x first] boolValue]) {
             [self gotoMainViewController];
         }
