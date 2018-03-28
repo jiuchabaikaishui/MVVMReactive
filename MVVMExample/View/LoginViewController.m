@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "Masonry.h"
+#import "SearchViewController.h"
 
 @interface LoginViewController ()
 
@@ -42,18 +43,20 @@
 
 #pragma mark - 自定义方法
 - (void)bindViewModel {
-    RAC(self.viewModel, userName) = self.userNameT.rac_textSignal;
-    RAC(self.viewModel, passWord) = self.passWordT.rac_textSignal;
+    RAC(self.viewModel.user.userModel, username) = self.userNameT.rac_textSignal;
+    RAC(self.viewModel.user.userModel, password) = self.passWordT.rac_textSignal;
     self.loginB.rac_command = self.viewModel.loginCommand;
-    [self.viewModel.loginCommand.executionSignals subscribeNext:^(id  _Nullable x) {
-        [self.userNameT resignFirstResponder];
-        [self.passWordT resignFirstResponder];
-        
-//        [x subscribeNext:^(id  _Nullable x) {
-//            if (x && [x[@"code"] integerValue] == 0) {
-//                self.passWordT.text = nil;
-//            }
-//        }];
+    [self.viewModel.loginCommand.executionSignals subscribeNext:^(RACSignal *signal) {
+        [signal subscribeNext:^(ResultModel *model) {
+            [self.userNameT resignFirstResponder];
+            [self.passWordT resignFirstResponder];
+            
+            if (model.success) {
+                SearchViewController *searchCtr = [[SearchViewController alloc] initWithViewModel:[[SearchViewModel alloc] initWithSearch:[Search searchWithServices:self.viewModel.user.services userModel:self.viewModel.user.userModel]]];
+                [UIApplication sharedApplication].delegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:searchCtr];
+                [[UIApplication sharedApplication].delegate.window makeKeyWindow];
+            }
+        }];
     }];
 }
 - (void)settingUI {

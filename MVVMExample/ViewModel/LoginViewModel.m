@@ -12,27 +12,26 @@
 
 @interface LoginViewModel ()
 
-@property (strong, nonatomic) LoginServices *loginServices;
-
 @end
 
 @implementation LoginViewModel
 
-- (instancetype)initWithLoginServices:(LoginServices *)services {
++ (instancetype)loginViewModelWithUser:(User *)user {
+    return [[self alloc] initWithUser:user];
+}
+- (instancetype)initWithUser:(User *)user {
     if (self = [super init]) {
-        self.loginServices = services;
-        self.userName = @"";
-        self.passWord = @"";
+        self.user = user;
         
         //创建有效的用户名密码信号
         @weakify(self)
-        RACSignal *validUS = [[RACObserve(self, userName) map:^id _Nullable(id  _Nullable value) {
+        RACSignal *validUS = [[RACObserve(self.user.userModel, username) map:^id _Nullable(id  _Nullable value) {
             @strongify(self)
-            return @([self isValid:value]);
+            return @(self.user.isValidOfUsername);
         }] distinctUntilChanged];
-        RACSignal *validPS = [[RACObserve(self, passWord) map:^id _Nullable(id  _Nullable value) {
+        RACSignal *validPS = [[RACObserve(self.user.userModel, password) map:^id _Nullable(id  _Nullable value) {
             @strongify(self)
-            return @([self isValid:value]);
+            return @(self.user.isValidOfPassword);
         }] distinctUntilChanged];
         
         //合并有效的用户名密码信号作为控制登录按钮可用的信号
@@ -41,26 +40,12 @@
         }];
         
         self.loginCommand = [[RACCommand alloc] initWithEnabled:validLS signalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-            [self.loginServices showLoading];
-            return [[[self.loginServices loginSignal:self.userName passWord:self.passWord] doNext:^(id  _Nullable x) {
-                if ([x[@"code"] integerValue] == 0) {
-                    [self.loginServices gotoSearchViewModel];
-                }
-                [self.loginServices hideLoading];
-                [self.loginServices showMessage:x[@"message"]];
-            }] logAll];
+            @strongify(self)
+            return [[self.user loginSignal] logAll];
         }];
     }
     
     return self;
-}
-- (BOOL)isValid:(NSString *)str {
-    /*
-     给密码定一个规则：由字母、数字和_组成的6-16位字符串
-     */
-    NSString *regularStr = @"[a-zA-Z0-9_]{6,16}";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF matches %@", regularStr];
-    return [predicate evaluateWithObject:str];
 }
 
 @end

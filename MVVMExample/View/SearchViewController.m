@@ -9,6 +9,9 @@
 #import "SearchViewController.h"
 #import "Masonry.h"
 #import <ReactiveObjC.h>
+#import "UIImageView+WebCache.h"
+#import "TableViewBindingHelper.h"
+#import "FriendTableViewCell.h"
 
 @interface SearchViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -20,6 +23,8 @@
 @property (weak, nonatomic) UIButton *leftButton;
 @property (weak, nonatomic) UIButton *rightButton;
 @property (weak, nonatomic) UIView *loadingView;
+@property (weak, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) TableViewBindingHelper *helper;
 
 @end
 
@@ -38,16 +43,30 @@
 #pragma mark - 自定义方法
 - (void)bindViewModel {
     self.title = self.viewModel.title;
-    RAC(self.viewModel, searchText) = self.searchTextField.rac_textSignal;
-    RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) = self.viewModel.searchCommand.executing;
+    RAC(self.viewModel.search, searchText) = self.searchTextField.rac_textSignal;
     RAC(self.loadingView, hidden) = [self.viewModel.searchCommand.executing not];
+    RAC([UIApplication sharedApplication], networkActivityIndicatorVisible) = self.viewModel.logoutCommand.executing;
     
     self.rightButton.rac_command = self.viewModel.searchCommand;
+    self.leftButton.rac_command = self.viewModel.logoutCommand;
+    
     [self.viewModel.searchCommand.executionSignals subscribeNext:^(id  _Nullable x) {
         [self.searchTextField resignFirstResponder];
     }];
     
-    self.leftButton.rac_command = self.viewModel.logoutCommand;
+    [RACObserve(self.viewModel, results) subscribeNext:^(id  _Nullable x) {
+        [self.tableView reloadData];
+    }];
+    
+//    self.helper = [TableViewBindingHelper bindingHelperForTableView:self.tableView sourceSignal:RACObserve(self.viewModel, results) selectionCommand:[[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+//        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+//            [subscriber sendCompleted];
+//
+//            return [RACDisposable disposableWithBlock:^{
+//                //完成后清理不需要的资源
+//            }];
+//        }];
+//    }]];
 }
 - (void)settingUi {
     //设置UI
@@ -89,10 +108,11 @@
     self.rightButton = rightButton;
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:tableView];
+    self.tableView = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
 }
 + (instancetype)searchViewControllerWithViewModel:(SearchViewModel *)viewModel {
     return [[self alloc] initWithViewModel:viewModel];
@@ -107,16 +127,10 @@
 
 #pragma mark - <UITableViewDelegate, UITableViewDataSource>代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.viewModel.results.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
-    }
-    
-    return cell;
+    return [FriendTableViewCell friendCell:tableView viewModel:[self.viewModel.results objectAtIndex:indexPath.row]];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -124,6 +138,14 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if ([self.navigationItem.titleView isFirstResponder]) {
         [self.navigationItem.titleView endEditing:YES];
+    }
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        UITableView *tableView = (UITableView *)scrollView;
+        for (FriendTableViewCell *cell in [tableView visibleCells]) {
+            [cell setParallax:(cell.frame.origin.y - scrollView.contentOffset.y) / 5 - cell.frame.origin.y];
+        }
     }
 }
 

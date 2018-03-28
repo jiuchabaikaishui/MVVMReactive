@@ -19,16 +19,23 @@
 		6E43A6631F7C9DCB00EAC665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E43A6611F7C9DCB00EAC665 /* LaunchScreen.storyboard */; };
 		6E43A66E1F7C9DCB00EAC665 /* MVVMReactiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E43A66D1F7C9DCB00EAC665 /* MVVMReactiveTests.m */; };
 		6E43A6791F7C9DCB00EAC665 /* MVVMReactiveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E43A6781F7C9DCB00EAC665 /* MVVMReactiveUITests.m */; };
-		6E4F38292041035900E793C7 /* SearchServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F38282041035900E793C7 /* SearchServices.m */; };
 		6E4F382C204116F400E793C7 /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F382B204116F400E793C7 /* FriendModel.m */; };
 		6E4F382F204168FD00E793C7 /* NetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F382E204168FD00E793C7 /* NetworkingTool.m */; };
 		6E4F38342041781900E793C7 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E4F38332041781900E793C7 /* data.json */; };
 		6EA1381D201577EE002C1AB5 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EA1381C201577EE002C1AB5 /* data.json */; };
 		6EA13842201ADACE002C1AB5 /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA13841201ADACE002C1AB5 /* SearchViewModel.m */; };
+		6EC88DBA206A241A006B7300 /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC88DB9206A241A006B7300 /* ResultModel.m */; };
+		6EC88DBD206B2F44006B7300 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC88DBC206B2F44006B7300 /* Search.m */; };
 		6ED1B86F2045303200E11F08 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED1B86D2045303200E11F08 /* LoginViewController.m */; };
 		6ED1B8752045318600E11F08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED1B8732045318600E11F08 /* AppDelegate.m */; };
+		6ED3FE7420622D6B00D6A30C /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE7320622D6B00D6A30C /* TableViewBindingHelper.m */; };
+		6ED3FE772062342200D6A30C /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE762062342200D6A30C /* FriendTableViewCell.m */; };
+		6ED3FE7A2062368E00D6A30C /* FriendCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE792062368E00D6A30C /* FriendCellViewModel.m */; };
+		6ED3FE7D206352C000D6A30C /* IntimacyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE7C206352C000D6A30C /* IntimacyModel.m */; };
+		6ED3FE802063580B00D6A30C /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE7F2063580B00D6A30C /* UserModel.m */; };
+		6ED3FE8320638ABB00D6A30C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE8220638ABB00D6A30C /* User.m */; };
 		6EDF814D2044EB19003452BF /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF814C2044EB19003452BF /* LoginViewModel.m */; };
-		6EDF81502044F544003452BF /* LoginServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF814F2044F544003452BF /* LoginServices.m */; };
+		6EDF81502044F544003452BF /* Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF814F2044F544003452BF /* Services.m */; };
 		6EF6A7192000CCFA00265F72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6A7172000CCFA00265F72 /* Main.storyboard */; };
 		6EF6A71B2000CCFA00265F72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6A71A2000CCFA00265F72 /* Assets.xcassets */; };
 		6EF6A71E2000CCFA00265F72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6A71C2000CCFA00265F72 /* LaunchScreen.storyboard */; };
@@ -101,8 +108,6 @@
 		6E43A6741F7C9DCB00EAC665 /* MVVMReactiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMReactiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E43A6781F7C9DCB00EAC665 /* MVVMReactiveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMReactiveUITests.m; sourceTree = "<group>"; };
 		6E43A67A1F7C9DCB00EAC665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E4F38272041035900E793C7 /* SearchServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchServices.h; sourceTree = "<group>"; };
-		6E4F38282041035900E793C7 /* SearchServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchServices.m; sourceTree = "<group>"; };
 		6E4F382A204116F400E793C7 /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendModel.h; path = MVVMExample/Model/FriendModel.h; sourceTree = SOURCE_ROOT; };
 		6E4F382B204116F400E793C7 /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendModel.m; path = MVVMExample/Model/FriendModel.m; sourceTree = SOURCE_ROOT; };
 		6E4F382D204168FD00E793C7 /* NetworkingTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingTool.h; sourceTree = "<group>"; };
@@ -112,14 +117,30 @@
 		6EA13840201ADACE002C1AB5 /* SearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewModel.h; sourceTree = "<group>"; };
 		6EA13841201ADACE002C1AB5 /* SearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewModel.m; sourceTree = "<group>"; };
 		6EA13843201AE05A002C1AB5 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		6EC88DB8206A241A006B7300 /* ResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
+		6EC88DB9206A241A006B7300 /* ResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		6EC88DBB206B2F44006B7300 /* Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
+		6EC88DBC206B2F44006B7300 /* Search.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		6ED1B86D2045303200E11F08 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6ED1B86E2045303200E11F08 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6ED1B8732045318600E11F08 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6ED1B8742045318600E11F08 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6ED3FE7220622D6B00D6A30C /* TableViewBindingHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewBindingHelper.h; sourceTree = "<group>"; };
+		6ED3FE7320622D6B00D6A30C /* TableViewBindingHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewBindingHelper.m; sourceTree = "<group>"; };
+		6ED3FE752062342200D6A30C /* FriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		6ED3FE762062342200D6A30C /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		6ED3FE782062368E00D6A30C /* FriendCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCellViewModel.h; sourceTree = "<group>"; };
+		6ED3FE792062368E00D6A30C /* FriendCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCellViewModel.m; sourceTree = "<group>"; };
+		6ED3FE7B206352C000D6A30C /* IntimacyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntimacyModel.h; sourceTree = "<group>"; };
+		6ED3FE7C206352C000D6A30C /* IntimacyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntimacyModel.m; sourceTree = "<group>"; };
+		6ED3FE7E2063580B00D6A30C /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		6ED3FE7F2063580B00D6A30C /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		6ED3FE8120638ABB00D6A30C /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6ED3FE8220638ABB00D6A30C /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6EDF814B2044EB19003452BF /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		6EDF814C2044EB19003452BF /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
-		6EDF814E2044F544003452BF /* LoginServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginServices.h; sourceTree = "<group>"; };
-		6EDF814F2044F544003452BF /* LoginServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginServices.m; sourceTree = "<group>"; };
+		6EDF814E2044F544003452BF /* Services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Services.h; sourceTree = "<group>"; };
+		6EDF814F2044F544003452BF /* Services.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Services.m; sourceTree = "<group>"; };
 		6EF6A70F2000CCFA00265F72 /* MVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF6A7182000CCFA00265F72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6EF6A71A2000CCFA00265F72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -305,8 +326,8 @@
 			children = (
 				6EF6A7442000CE2600265F72 /* Tool */,
 				6EF6A7412000CD4200265F72 /* Model */,
-				6EF6A7422000CD4200265F72 /* View */,
 				6EF6A7432000CD4200265F72 /* ViewModel */,
+				6EF6A7422000CD4200265F72 /* View */,
 				6E4F38302041761700E793C7 /* Source */,
 				6EF6A7172000CCFA00265F72 /* Main.storyboard */,
 				6EF6A71A2000CCFA00265F72 /* Assets.xcassets */,
@@ -340,12 +361,20 @@
 		6EF6A7412000CD4200265F72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6EDF814E2044F544003452BF /* LoginServices.h */,
-				6EDF814F2044F544003452BF /* LoginServices.m */,
-				6E4F38272041035900E793C7 /* SearchServices.h */,
-				6E4F38282041035900E793C7 /* SearchServices.m */,
+				6EDF814E2044F544003452BF /* Services.h */,
+				6EDF814F2044F544003452BF /* Services.m */,
+				6EC88DB8206A241A006B7300 /* ResultModel.h */,
+				6EC88DB9206A241A006B7300 /* ResultModel.m */,
+				6ED3FE7E2063580B00D6A30C /* UserModel.h */,
+				6ED3FE7F2063580B00D6A30C /* UserModel.m */,
+				6ED3FE8120638ABB00D6A30C /* User.h */,
+				6ED3FE8220638ABB00D6A30C /* User.m */,
 				6E4F382A204116F400E793C7 /* FriendModel.h */,
 				6E4F382B204116F400E793C7 /* FriendModel.m */,
+				6EC88DBB206B2F44006B7300 /* Search.h */,
+				6EC88DBC206B2F44006B7300 /* Search.m */,
+				6ED3FE7B206352C000D6A30C /* IntimacyModel.h */,
+				6ED3FE7C206352C000D6A30C /* IntimacyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,6 +386,8 @@
 				6ED1B86D2045303200E11F08 /* LoginViewController.m */,
 				6EA13843201AE05A002C1AB5 /* SearchViewController.h */,
 				6EF6A75A20034C4300265F72 /* SearchViewController.m */,
+				6ED3FE752062342200D6A30C /* FriendTableViewCell.h */,
+				6ED3FE762062342200D6A30C /* FriendTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -368,6 +399,8 @@
 				6EDF814C2044EB19003452BF /* LoginViewModel.m */,
 				6EA13840201ADACE002C1AB5 /* SearchViewModel.h */,
 				6EA13841201ADACE002C1AB5 /* SearchViewModel.m */,
+				6ED3FE782062368E00D6A30C /* FriendCellViewModel.h */,
+				6ED3FE792062368E00D6A30C /* FriendCellViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -379,6 +412,8 @@
 				6E4F382E204168FD00E793C7 /* NetworkingTool.m */,
 				6E28131B2046B27A0084BBF1 /* LoadingTool.h */,
 				6E28131C2046B27A0084BBF1 /* LoadingTool.m */,
+				6ED3FE7220622D6B00D6A30C /* TableViewBindingHelper.h */,
+				6ED3FE7320622D6B00D6A30C /* TableViewBindingHelper.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -847,17 +882,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED3FE8320638ABB00D6A30C /* User.m in Sources */,
 				6ED1B8752045318600E11F08 /* AppDelegate.m in Sources */,
 				6EA13842201ADACE002C1AB5 /* SearchViewModel.m in Sources */,
 				6EF6A75B20034C4300265F72 /* SearchViewController.m in Sources */,
 				6E4F382F204168FD00E793C7 /* NetworkingTool.m in Sources */,
 				6EF6A7212000CCFA00265F72 /* main.m in Sources */,
 				6E28131D2046B27A0084BBF1 /* LoadingTool.m in Sources */,
-				6E4F38292041035900E793C7 /* SearchServices.m in Sources */,
+				6ED3FE772062342200D6A30C /* FriendTableViewCell.m in Sources */,
 				6E4F382C204116F400E793C7 /* FriendModel.m in Sources */,
+				6EC88DBD206B2F44006B7300 /* Search.m in Sources */,
 				6EDF814D2044EB19003452BF /* LoginViewModel.m in Sources */,
+				6EC88DBA206A241A006B7300 /* ResultModel.m in Sources */,
+				6ED3FE7420622D6B00D6A30C /* TableViewBindingHelper.m in Sources */,
 				6ED1B86F2045303200E11F08 /* LoginViewController.m in Sources */,
-				6EDF81502044F544003452BF /* LoginServices.m in Sources */,
+				6ED3FE802063580B00D6A30C /* UserModel.m in Sources */,
+				6ED3FE7A2062368E00D6A30C /* FriendCellViewModel.m in Sources */,
+				6ED3FE7D206352C000D6A30C /* IntimacyModel.m in Sources */,
+				6EDF81502044F544003452BF /* Services.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

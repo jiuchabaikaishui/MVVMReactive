@@ -30,7 +30,7 @@
 
 - (UIViewController *)rootController {
     UINavigationController *nav = [[UINavigationController alloc] init];
-    self.loginViewModel = [[LoginViewModel alloc] initWithLoginServices:[[LoginServices alloc] initWithWindow:self.window]];
+    self.loginViewModel = [LoginViewModel loginViewModelWithUser:[User userWithServices:[[Services alloc] init]]];
     LoginViewController *loginC = [[LoginViewController alloc] initWithLoginViewModel:self.loginViewModel];
     [nav pushViewController:loginC animated:NO];
     

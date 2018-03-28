@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC.h>
-#import "SearchServices.h"
+#import "FriendCellViewModel.h"
+#import "Services.h"
+#import "UserModel.h"
+#import "Search.h"
 
 @interface SearchViewModel : NSObject
 
@@ -16,14 +19,12 @@
  控制器标题
  */
 @property (copy, nonatomic) NSString *title;
+@property (strong, nonatomic, readonly) Search *search;
+@property (strong, nonatomic, readonly) RACSignal *alffFriendsSignal;
+@property (strong, nonatomic, readonly) RACCommand *searchCommand;
+@property (strong, nonatomic, readonly) RACCommand *logoutCommand;
+@property (copy, nonatomic) NSArray<FriendCellViewModel *> *results;
 
-/**
- 搜索文字
- */
-@property (copy, nonatomic) NSString *searchText;
-@property (strong, nonatomic) RACCommand *searchCommand;
-@property (strong, nonatomic) RACCommand *logoutCommand;
-
-- (instancetype)initWithSearchServices:(SearchServices *)services;
+- (instancetype)initWithSearch:(Search *)search;
 
 @end

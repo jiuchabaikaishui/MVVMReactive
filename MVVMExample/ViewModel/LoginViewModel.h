@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC.h>
-#import "LoginServices.h"
+#import "Services.h"
+#import "User.h"
 
 @interface LoginViewModel : NSObject
 
-@property (copy, nonatomic) NSString *userName;
-@property (copy, nonatomic) NSString *passWord;
+@property (strong, nonatomic) User *user;
 @property (strong, nonatomic) RACCommand *loginCommand;
 
-- (instancetype)initWithLoginServices:(LoginServices *)services;
++ (instancetype)loginViewModelWithUser:(User *)user;
+- (instancetype)initWithUser:(User *)user;
 
 @end
