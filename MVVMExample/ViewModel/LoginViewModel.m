@@ -24,13 +24,13 @@
         self.user = user;
         
         //创建有效的用户名密码信号
-        @weakify(self)
+        @weakify(self);
         RACSignal *validUS = [[RACObserve(self.user.userModel, username) map:^id _Nullable(id  _Nullable value) {
-            @strongify(self)
+            @strongify(self);
             return @(self.user.isValidOfUsername);
         }] distinctUntilChanged];
         RACSignal *validPS = [[RACObserve(self.user.userModel, password) map:^id _Nullable(id  _Nullable value) {
-            @strongify(self)
+            @strongify(self);
             return @(self.user.isValidOfPassword);
         }] distinctUntilChanged];
         
@@ -40,7 +40,7 @@
         }];
         
         self.loginCommand = [[RACCommand alloc] initWithEnabled:validLS signalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-            @strongify(self)
+            @strongify(self);
             return [[self.user loginSignal] logAll];
         }];
     }

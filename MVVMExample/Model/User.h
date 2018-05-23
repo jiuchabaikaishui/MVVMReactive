@@ -19,8 +19,8 @@
 @property (assign, nonatomic, readonly, getter=isValidOfUsername) BOOL validOfUsername;
 @property (assign, nonatomic, readonly, getter=isValidOfPassword) BOOL validOfPassword;
 
-+ (instancetype)userWithServices:(Services *)services;
-- (instancetype)initWithServices:(Services *)services;
++ (instancetype)userWithServices:(Services *)services userModel:(UserModel *)model;
+- (instancetype)initWithServices:(Services *)services userModel:(UserModel *)model;
 
 - (RACSignal *)loginSignal;
 - (RACSignal *)logoutSignal;

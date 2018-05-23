@@ -14,4 +14,7 @@
 @property (copy, nonatomic) NSString *password;
 @property (assign, nonatomic, getter=isLogined) BOOL logined;
 
++ (instancetype)userModelWithUsername:(NSString *)username password:(NSString *)password logined:(BOOL)logined;
+- (instancetype)initWithUsername:(NSString *)username password:(NSString *)password logined:(BOOL)logined;
+
 @end

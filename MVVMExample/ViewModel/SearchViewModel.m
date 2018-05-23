@@ -39,7 +39,7 @@
             }] logAll];
         }];
         _logoutCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-            return [[[self.services logoutSignal:self.search.userModel.username] doNext:^(id  _Nullable x) {
+            return [[[self.services logoutSignal:self.search.userModel.username passWord:self.search.userModel.password] doNext:^(id  _Nullable x) {
                 if (x && [x[@"code"] integerValue] == 0) {
 #warning 导航未完成
 //                    [self.searchServices gotoLoginViewModel];

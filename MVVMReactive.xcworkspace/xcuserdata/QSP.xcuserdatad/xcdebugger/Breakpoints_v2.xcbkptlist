@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MVVMExample/Tool/NetworkingTool.m"
-            timestampString = "543925503.820798"
+            timestampString = "544871126.7428139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "+initialize"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "+postWithPath:parameters:completion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

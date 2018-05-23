@@ -11,6 +11,7 @@
 #define K_Service_Login                                     @"https://www.qsp/login"
 #define K_Service_Logout                                    @"https://www.qsp/logout"
 #define K_Service_GetAllFriends                             @"https://www.qsp/getAllFriends"
+#define K_Service_PageFriends                               @"https://www.qsp/pageFriends"
 #define K_Service_SearchFriends                             @"https://www.qsp/searchFriends"
 
 @interface NetworkingTool : NSObject

@@ -11,9 +11,9 @@
 
 @interface FriendCellViewModel : NSObject
 
-- (instancetype)initWithFriendModel:(FriendModel *)model;
-+ (instancetype)friendCellViewModel:(FriendModel *)model;
-
 @property (strong, nonatomic) FriendModel *friendModel;
+
++ (instancetype)friendCellViewModel:(FriendModel *)model;
+- (instancetype)initWithFriendModel:(FriendModel *)model;
 
 @end

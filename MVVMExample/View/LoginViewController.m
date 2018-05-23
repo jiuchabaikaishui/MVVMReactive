@@ -8,11 +8,12 @@
 
 #import "LoginViewController.h"
 #import "Masonry.h"
-#import "SearchViewController.h"
+#import "HomeViewController.h"
+#import "LoadingTool.h"
 
 @interface LoginViewController ()
 
-@property (weak, nonatomic) LoginViewModel *viewModel;
+@property (strong, nonatomic) LoginViewModel *viewModel;
 @property (weak, nonatomic) UITextField *userNameT;
 @property (weak, nonatomic) UITextField *passWordT;
 @property (weak, nonatomic) UIButton *loginB;
@@ -43,18 +44,34 @@
 
 #pragma mark - 自定义方法
 - (void)bindViewModel {
+    self.userNameT.text = self.viewModel.user.userModel.username;
+    self.passWordT.text = self.viewModel.user.userModel.password;
     RAC(self.viewModel.user.userModel, username) = self.userNameT.rac_textSignal;
     RAC(self.viewModel.user.userModel, password) = self.passWordT.rac_textSignal;
     self.loginB.rac_command = self.viewModel.loginCommand;
+    @weakify(self)
+    [self.viewModel.loginCommand.executing subscribeNext:^(NSNumber * _Nullable x) {
+        @strongify(self)
+        BOOL end = [x boolValue];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = end;
+        if (end) {
+            [LoadingTool showTo:self.view];
+        } else {
+            [LoadingTool hideFrom:self.view];
+        }
+    }];
     [self.viewModel.loginCommand.executionSignals subscribeNext:^(RACSignal *signal) {
+        @strongify(self)
         [signal subscribeNext:^(ResultModel *model) {
             [self.userNameT resignFirstResponder];
             [self.passWordT resignFirstResponder];
             
             if (model.success) {
-                SearchViewController *searchCtr = [[SearchViewController alloc] initWithViewModel:[[SearchViewModel alloc] initWithSearch:[Search searchWithServices:self.viewModel.user.services userModel:self.viewModel.user.userModel]]];
-                [UIApplication sharedApplication].delegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:searchCtr];
+                HomeViewController *homeCtr = [HomeViewController homeViewControllerWithViewModel:[[HomeViewModel alloc] initWithHome:[Home homeWithUser:model.dataModel]]];
+                [UIApplication sharedApplication].delegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:homeCtr];
                 [[UIApplication sharedApplication].delegate.window makeKeyWindow];
+            } else {
+                [LoadingTool showMessage:model.message toView:self.view];
             }
         }];
     }];

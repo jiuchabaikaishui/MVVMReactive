@@ -12,8 +12,6 @@
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) LoginViewModel *loginViewModel;
-
 @end
 
 @implementation AppDelegate
@@ -30,8 +28,8 @@
 
 - (UIViewController *)rootController {
     UINavigationController *nav = [[UINavigationController alloc] init];
-    self.loginViewModel = [LoginViewModel loginViewModelWithUser:[User userWithServices:[[Services alloc] init]]];
-    LoginViewController *loginC = [[LoginViewController alloc] initWithLoginViewModel:self.loginViewModel];
+    LoginViewModel *loginViewModel = [LoginViewModel loginViewModelWithUser:[User userWithServices:[[Services alloc] init] userModel:[UserModel userModelWithUsername:@"Jiuchabaikaishui" password:@"123456" logined:NO]]];
+    LoginViewController *loginC = [[LoginViewController alloc] initWithLoginViewModel:loginViewModel];
     [nav pushViewController:loginC animated:NO];
     
     return nav;

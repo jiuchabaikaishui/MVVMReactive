@@ -14,6 +14,5 @@
 @property (strong, nonatomic) FriendCellViewModel *viewModel;
 
 + (instancetype)friendCell:(UITableView *)tableView viewModel:(FriendCellViewModel *)viewModel;
-- (void)setParallax:(CGFloat)parallax;
 
 @end

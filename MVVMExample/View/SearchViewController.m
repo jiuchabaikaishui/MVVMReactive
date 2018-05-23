@@ -33,6 +33,16 @@
 #pragma mark - 属性方法
 
 #pragma mark - 控制器周期
++ (instancetype)searchViewControllerWithViewModel:(SearchViewModel *)viewModel {
+    return [[self alloc] initWithViewModel:viewModel];
+}
+- (instancetype)initWithViewModel:(SearchViewModel *)viewModel {
+    if (self = [super init]) {
+        self.viewModel = viewModel;
+    }
+    
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -114,16 +124,6 @@
     tableView.delegate = self;
     tableView.dataSource = self;
 }
-+ (instancetype)searchViewControllerWithViewModel:(SearchViewModel *)viewModel {
-    return [[self alloc] initWithViewModel:viewModel];
-}
-- (instancetype)initWithViewModel:(SearchViewModel *)viewModel {
-    if (self = [super init]) {
-        self.viewModel = viewModel;
-    }
-    
-    return self;
-}
 
 #pragma mark - <UITableViewDelegate, UITableViewDataSource>代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -138,14 +138,6 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if ([self.navigationItem.titleView isFirstResponder]) {
         [self.navigationItem.titleView endEditing:YES];
-    }
-}
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([scrollView isKindOfClass:[UITableView class]]) {
-        UITableView *tableView = (UITableView *)scrollView;
-        for (FriendTableViewCell *cell in [tableView visibleCells]) {
-            [cell setParallax:(cell.frame.origin.y - scrollView.contentOffset.y) / 5 - cell.frame.origin.y];
-        }
     }
 }
 

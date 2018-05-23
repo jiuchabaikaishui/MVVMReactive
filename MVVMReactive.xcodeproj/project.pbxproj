@@ -28,6 +28,12 @@
 		6EC88DBD206B2F44006B7300 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC88DBC206B2F44006B7300 /* Search.m */; };
 		6ED1B86F2045303200E11F08 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED1B86D2045303200E11F08 /* LoginViewController.m */; };
 		6ED1B8752045318600E11F08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED1B8732045318600E11F08 /* AppDelegate.m */; };
+		6ED32D5B206C8DC300F4F913 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED32D5A206C8DC300F4F913 /* HomeViewController.m */; };
+		6ED32D5E206C8F1200F4F913 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED32D5D206C8F1200F4F913 /* HomeViewModel.m */; };
+		6ED32D61206C8FAF00F4F913 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED32D60206C8FAF00F4F913 /* Home.m */; };
+		6ED32D64206E3B9500F4F913 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED32D63206E3B9500F4F913 /* ResultsViewController.m */; };
+		6ED32D67206E3BEB00F4F913 /* ResultsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED32D66206E3BEB00F4F913 /* ResultsViewModel.m */; };
+		6ED32D6A206E3C1C00F4F913 /* Results.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED32D69206E3C1C00F4F913 /* Results.m */; };
 		6ED3FE7420622D6B00D6A30C /* TableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE7320622D6B00D6A30C /* TableViewBindingHelper.m */; };
 		6ED3FE772062342200D6A30C /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE762062342200D6A30C /* FriendTableViewCell.m */; };
 		6ED3FE7A2062368E00D6A30C /* FriendCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3FE792062368E00D6A30C /* FriendCellViewModel.m */; };
@@ -125,6 +131,22 @@
 		6ED1B86E2045303200E11F08 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6ED1B8732045318600E11F08 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6ED1B8742045318600E11F08 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6ED32D59206C8DC300F4F913 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		6ED32D5A206C8DC300F4F913 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6ED32D5C206C8F1200F4F913 /* HomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
+		6ED32D5D206C8F1200F4F913 /* HomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
+		6ED32D5F206C8FAF00F4F913 /* Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
+		6ED32D60206C8FAF00F4F913 /* Home.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
+		6ED32D62206E3B9500F4F913 /* ResultsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		6ED32D63206E3B9500F4F913 /* ResultsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		6ED32D65206E3BEB00F4F913 /* ResultsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultsViewModel.h; sourceTree = "<group>"; };
+		6ED32D66206E3BEB00F4F913 /* ResultsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultsViewModel.m; sourceTree = "<group>"; };
+		6ED32D68206E3C1C00F4F913 /* Results.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Results.h; sourceTree = "<group>"; };
+		6ED32D69206E3C1C00F4F913 /* Results.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Results.m; sourceTree = "<group>"; };
+		6ED32D6B2071C34D00F4F913 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		6ED32D6C2071C34D00F4F913 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		6ED32D6D2071C34D00F4F913 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		6ED32D6E2071C34D00F4F913 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		6ED3FE7220622D6B00D6A30C /* TableViewBindingHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewBindingHelper.h; sourceTree = "<group>"; };
 		6ED3FE7320622D6B00D6A30C /* TableViewBindingHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewBindingHelper.m; sourceTree = "<group>"; };
 		6ED3FE752062342200D6A30C /* FriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
@@ -238,6 +260,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6E1AB70D20AA7A4B0030C331 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6E1AB70E20AA7A630030C331 /* System */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		6E1AB70E20AA7A630030C331 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6A7172000CCFA00265F72 /* Main.storyboard */,
+				6EF6A71A2000CCFA00265F72 /* Assets.xcassets */,
+				6EF6A71C2000CCFA00265F72 /* LaunchScreen.storyboard */,
+				6EF6A71F2000CCFA00265F72 /* Info.plist */,
+				6ED1B8742045318600E11F08 /* AppDelegate.h */,
+				6ED1B8732045318600E11F08 /* AppDelegate.m */,
+				6EF6A7202000CCFA00265F72 /* main.m */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		6E43A6471F7C9DCB00EAC665 = {
 			isa = PBXGroup;
 			children = (
@@ -329,13 +373,7 @@
 				6EF6A7432000CD4200265F72 /* ViewModel */,
 				6EF6A7422000CD4200265F72 /* View */,
 				6E4F38302041761700E793C7 /* Source */,
-				6EF6A7172000CCFA00265F72 /* Main.storyboard */,
-				6EF6A71A2000CCFA00265F72 /* Assets.xcassets */,
-				6EF6A71C2000CCFA00265F72 /* LaunchScreen.storyboard */,
-				6EF6A71F2000CCFA00265F72 /* Info.plist */,
-				6ED1B8742045318600E11F08 /* AppDelegate.h */,
-				6ED1B8732045318600E11F08 /* AppDelegate.m */,
-				6EF6A7202000CCFA00265F72 /* main.m */,
+				6E1AB70D20AA7A4B0030C331 /* Other */,
 			);
 			path = MVVMExample;
 			sourceTree = "<group>";
@@ -369,6 +407,10 @@
 				6ED3FE7F2063580B00D6A30C /* UserModel.m */,
 				6ED3FE8120638ABB00D6A30C /* User.h */,
 				6ED3FE8220638ABB00D6A30C /* User.m */,
+				6ED32D5F206C8FAF00F4F913 /* Home.h */,
+				6ED32D60206C8FAF00F4F913 /* Home.m */,
+				6ED32D68206E3C1C00F4F913 /* Results.h */,
+				6ED32D69206E3C1C00F4F913 /* Results.m */,
 				6E4F382A204116F400E793C7 /* FriendModel.h */,
 				6E4F382B204116F400E793C7 /* FriendModel.m */,
 				6EC88DBB206B2F44006B7300 /* Search.h */,
@@ -384,6 +426,10 @@
 			children = (
 				6ED1B86E2045303200E11F08 /* LoginViewController.h */,
 				6ED1B86D2045303200E11F08 /* LoginViewController.m */,
+				6ED32D59206C8DC300F4F913 /* HomeViewController.h */,
+				6ED32D5A206C8DC300F4F913 /* HomeViewController.m */,
+				6ED32D62206E3B9500F4F913 /* ResultsViewController.h */,
+				6ED32D63206E3B9500F4F913 /* ResultsViewController.m */,
 				6EA13843201AE05A002C1AB5 /* SearchViewController.h */,
 				6EF6A75A20034C4300265F72 /* SearchViewController.m */,
 				6ED3FE752062342200D6A30C /* FriendTableViewCell.h */,
@@ -397,6 +443,10 @@
 			children = (
 				6EDF814B2044EB19003452BF /* LoginViewModel.h */,
 				6EDF814C2044EB19003452BF /* LoginViewModel.m */,
+				6ED32D5C206C8F1200F4F913 /* HomeViewModel.h */,
+				6ED32D5D206C8F1200F4F913 /* HomeViewModel.m */,
+				6ED32D65206E3BEB00F4F913 /* ResultsViewModel.h */,
+				6ED32D66206E3BEB00F4F913 /* ResultsViewModel.m */,
 				6EA13840201ADACE002C1AB5 /* SearchViewModel.h */,
 				6EA13841201ADACE002C1AB5 /* SearchViewModel.m */,
 				6ED3FE782062368E00D6A30C /* FriendCellViewModel.h */,
@@ -564,6 +614,7 @@
 					};
 					6EF6A70E2000CCFA00265F72 = {
 						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = UV433VL8PE;
 						ProvisioningStyle = Automatic;
 					};
 					6EF6A7252000CCFA00265F72 = {
@@ -661,9 +712,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMExample/Pods-MVVMExample-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -885,13 +939,18 @@
 				6ED3FE8320638ABB00D6A30C /* User.m in Sources */,
 				6ED1B8752045318600E11F08 /* AppDelegate.m in Sources */,
 				6EA13842201ADACE002C1AB5 /* SearchViewModel.m in Sources */,
+				6ED32D5E206C8F1200F4F913 /* HomeViewModel.m in Sources */,
 				6EF6A75B20034C4300265F72 /* SearchViewController.m in Sources */,
+				6ED32D64206E3B9500F4F913 /* ResultsViewController.m in Sources */,
 				6E4F382F204168FD00E793C7 /* NetworkingTool.m in Sources */,
 				6EF6A7212000CCFA00265F72 /* main.m in Sources */,
 				6E28131D2046B27A0084BBF1 /* LoadingTool.m in Sources */,
 				6ED3FE772062342200D6A30C /* FriendTableViewCell.m in Sources */,
+				6ED32D67206E3BEB00F4F913 /* ResultsViewModel.m in Sources */,
 				6E4F382C204116F400E793C7 /* FriendModel.m in Sources */,
 				6EC88DBD206B2F44006B7300 /* Search.m in Sources */,
+				6ED32D61206C8FAF00F4F913 /* Home.m in Sources */,
+				6ED32D6A206E3C1C00F4F913 /* Results.m in Sources */,
 				6EDF814D2044EB19003452BF /* LoginViewModel.m in Sources */,
 				6EC88DBA206A241A006B7300 /* ResultModel.m in Sources */,
 				6ED3FE7420622D6B00D6A30C /* TableViewBindingHelper.m in Sources */,
@@ -899,6 +958,7 @@
 				6ED3FE802063580B00D6A30C /* UserModel.m in Sources */,
 				6ED3FE7A2062368E00D6A30C /* FriendCellViewModel.m in Sources */,
 				6ED3FE7D206352C000D6A30C /* IntimacyModel.m in Sources */,
+				6ED32D5B206C8DC300F4F913 /* HomeViewController.m in Sources */,
 				6EDF81502044F544003452BF /* Services.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,6 +1009,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6E43A65D1F7C9DCB00EAC665 /* Base */,
+				6ED32D6B2071C34D00F4F913 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -957,6 +1018,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6E43A6621F7C9DCB00EAC665 /* Base */,
+				6ED32D6C2071C34D00F4F913 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -965,6 +1027,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6EF6A7182000CCFA00265F72 /* Base */,
+				6ED32D6D2071C34D00F4F913 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -973,6 +1036,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6EF6A71D2000CCFA00265F72 /* Base */,
+				6ED32D6E2071C34D00F4F913 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -984,6 +1048,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1033,6 +1098,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1163,9 +1229,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UV433VL8PE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = MVVMExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				INFOPLIST_FILE = MVVMExample/Other/System/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingbei.www.MVVMExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1188,9 +1255,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UV433VL8PE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = MVVMExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				INFOPLIST_FILE = MVVMExample/Other/System/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jingbei.www.MVVMExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

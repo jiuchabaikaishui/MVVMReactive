@@ -11,12 +11,12 @@
 #import "Services.h"
 #import "User.h"
 
-@interface LoginViewModel : NSObject
+    @interface LoginViewModel : NSObject
 
-@property (strong, nonatomic) User *user;
-@property (strong, nonatomic) RACCommand *loginCommand;
+    @property (strong, nonatomic) User *user;
+    @property (strong, nonatomic) RACCommand *loginCommand;
 
-+ (instancetype)loginViewModelWithUser:(User *)user;
-- (instancetype)initWithUser:(User *)user;
+    + (instancetype)loginViewModelWithUser:(User *)user;
+    - (instancetype)initWithUser:(User *)user;
 
 @end

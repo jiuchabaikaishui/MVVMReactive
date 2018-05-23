@@ -46,6 +46,19 @@
         }];
     }];
 }
+- (RACSignal *)logoutSignal:(NSString *)userName passWord:(NSString *)passWord {
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        [NetworkingTool postWithPath:K_Service_Logout parameters:@{@"userName": userName, @"passWord": passWord} completion:^(BOOL success, NSString *message, id responseObject) {
+            [subscriber sendNext:[Result resultWithSuccess:success message:message responseObject:responseObject]];
+            
+            [subscriber sendCompleted];
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+            
+        }];
+    }];
+}
 
 - (RACSignal *)searchSignal:(NSString *)searchText {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
@@ -73,16 +86,27 @@
         }];
     }];
 }
-- (RACSignal *)logoutSignal:(NSString *)userName {
+- (RACSignal *)friendSignalWithPage:(NSInteger)page andCount:(NSInteger)count {
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        [NetworkingTool postWithPath:K_Service_Logout parameters:@{@"userName": userName} completion:^(BOOL success, NSString *message, id responseObject) {
+        [NetworkingTool postWithPath:K_Service_PageFriends parameters:@{@"page": @(page), @"count": @(count)} completion:^(BOOL success, NSString *message, id responseObject) {
             [subscriber sendNext:[Result resultWithSuccess:success message:message responseObject:responseObject]];
-            
             [subscriber sendCompleted];
         }];
         
         return [RACDisposable disposableWithBlock:^{
-            
+            //完成后清理不需要的资源
+        }];
+    }];
+}
+- (RACSignal *)searchSignalWithContent:(NSString *)content page:(NSInteger)page andCount:(NSInteger)count {
+    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        [NetworkingTool postWithPath:K_Service_SearchFriends parameters:@{@"searchContent": content, @"page": @(page), @"count": @(count)} completion:^(BOOL success, NSString *message, id responseObject) {
+            [subscriber sendNext:[Result resultWithSuccess:success message:message responseObject:responseObject]];
+            [subscriber sendCompleted];
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+            //完成后清理不需要的资源
         }];
     }];
 }

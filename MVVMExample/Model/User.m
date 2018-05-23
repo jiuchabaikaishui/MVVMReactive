@@ -14,12 +14,13 @@
 
 @implementation User
 
-+ (instancetype)userWithServices:(Services *)services {
-    return [[self alloc] initWithServices:services];
++ (instancetype)userWithServices:(Services *)services userModel:(UserModel *)model {
+    return [[self alloc] initWithServices:services userModel:model];
 }
-- (instancetype)initWithServices:(Services *)services {
+- (instancetype)initWithServices:(Services *)services userModel:(UserModel *)model {
     if (self = [self init]) {
         _services = services;
+        self.userModel = model;
     }
     
     return self;
@@ -40,17 +41,18 @@
     return [self isValid:self.userModel.password];
 }
 - (RACSignal *)loginSignal {
-    return [[self.services loginSignal:self.userModel.username passWord:self.userModel.password] map:^id _Nullable(id  _Nullable value) {
-        Result *result = (Result *)value;
+    return [[self.services loginSignal:self.userModel.username passWord:self.userModel.password] map:^id _Nullable(Result *result) {
         self.userModel.logined = result.success && [result.responseObject[@"code"] integerValue] == 0;
-        return [ResultModel resultWithSuccess:result.success ? [result.responseObject[@"code"] integerValue] == 0 : result.success message:result.success ? result.responseObject[@"message"] : result.message dataModel:self.userModel];
+        //转换为模型数据
+        return [ResultModel resultWithSuccess:result.success ? [result.responseObject[@"code"] integerValue] == 0 : result.success message:result.success ? result.responseObject[@"message"] : result.message dataModel:[User userWithServices:self.services userModel:[UserModel userModelWithUsername:result.responseObject[@"userName"] password:result.responseObject[@"passWord"] logined:result.success && [result.responseObject[@"code"] integerValue] == 0]]];
     }];
 }
 - (RACSignal *)logoutSignal {
-    return [[self.services logoutSignal:self.userModel.username] map:^id _Nullable(id  _Nullable value) {
+    return [[self.services logoutSignal:self.userModel.username passWord:self.userModel.password] map:^id _Nullable(id  _Nullable value) {
         Result *result = (Result *)value;
         self.userModel.logined = !(result.success && [result.responseObject[@"code"] integerValue] == 0);
-        return [ResultModel resultWithSuccess:result.success ? [result.responseObject[@"code"] integerValue] == 0 : result.success message:result.success ? result.responseObject[@"message"] : result.message dataModel:self.userModel];
+        //转换为模型数据
+        return [ResultModel resultWithSuccess:result.success ? [result.responseObject[@"code"] integerValue] == 0 : result.success message:result.success ? result.responseObject[@"message"] : result.message dataModel:[User userWithServices:self.services userModel:[UserModel userModelWithUsername:result.responseObject[@"userName"] password:result.responseObject[@"passWord"] logined:!(result.success && [result.responseObject[@"code"] integerValue] == 0)]]];
     }];
 }
 - (BOOL)isValid:(NSString *)str {

@@ -23,9 +23,11 @@
 @interface Services : NSObject
 
 - (RACSignal *)loginSignal:(NSString *)userName passWord:(NSString *)passWord;
+- (RACSignal *)logoutSignal:(NSString *)userName passWord:(NSString *)passWord;
 
 - (RACSignal *)searchSignal:(NSString *)searchText;
 - (RACSignal *)allFriendsSignal;
-- (RACSignal *)logoutSignal:(NSString *)userName;
+- (RACSignal *)friendSignalWithPage:(NSInteger)page andCount:(NSInteger)count;
+- (RACSignal *)searchSignalWithContent:(NSString *)content page:(NSInteger)page andCount:(NSInteger)count;
 
 @end
